@@ -1,0 +1,64 @@
+<div class="root">
+    <div class="login-container">
+        <form 
+            [formGroup]="registerForm" 
+            class="w-100" 
+            [ngClass]="{ 'was-validated': isHasBeenValidated }" 
+            novalidate>
+            <div class="d-flex justify-content-center mb-5">
+              <img src="assets/banco-pichincha-logo-4.png" alt="logo" height="50px">
+            </div>
+            <div class="mb-4">
+                <label for="userEmail" class="form-label">Email</label>
+                <div class="input-group">
+                    <span class="input-group-text" id="addon-wrapping"><i class="bi bi-envelope"></i></span>
+                    <input
+                        required
+                        autocomplete="off"
+                        type="email" 
+                        class="form-control" 
+                        id="userEmail" 
+                        placeholder="name@pichincha.com"
+                        formControlName="email"
+                        [disabled]="isSubmitting"
+                    >
+                    <div class="invalid-feedback">
+                        Por favor ingrese un correo valido
+                    </div>
+                </div>
+            </div>
+            <div class="mb-5">
+                <label for="userPassword" class="form-label">Password</label>
+                <div class="input-group">
+                    <span class="input-group-text" id="addon-wrapping"><i class="bi bi-key-fill"></i></span>
+                    <input
+                        required 
+                        type="password" 
+                        minlength="6"
+                        maxlength="6"
+                        class="form-control" 
+                        id="userPassword" 
+                        placeholder="Password"
+                        formControlName="password"
+                        [disabled]="isSubmitting"
+                    >
+                    <div class="invalid-feedback">
+                        Por favor ingrese su password
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="isCredentialsInvalid" class="alert alert-danger text-center" role="alert">
+                Usuario y/o contraseña incorrectos
+            </div>
+            <button 
+                type="button" 
+                class="btn buttonSubmit w-100"
+                [disabled]="isSubmitting"
+                (click)="onSubmit()"
+                >
+                <div *ngIf="!isSubmitting">Ingresar</div>
+                <div *ngIf="isSubmitting"><i class="fa fa-circle-o-notch fa-spin"></i> Ingresando</div>
+            </button>
+        </form>
+    </div>
+</div>
