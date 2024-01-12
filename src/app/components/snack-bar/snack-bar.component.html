@@ -1,0 +1,14 @@
+<div *ngIf="snackBarObj.isOpen" class="root" [ngClass]="{'show' :snackBarObj.isOpen}">
+    <div *ngIf="snackBarObj.isSuccess" class="alert alert-success d-flex align-items-center" role="alert">
+        <div>
+          {{snackBarObj.message}}
+        </div>
+    </div>
+
+    <div *ngIf="!snackBarObj.isSuccess" class="alert alert-danger d-flex align-items-center" role="alert">
+        <div>
+            {{snackBarObj.message}}
+        </div>
+    </div>
+</div>
+

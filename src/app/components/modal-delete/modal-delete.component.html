@@ -1,0 +1,13 @@
+
+<div id="myModal" class="modalNew" [ngClass]="{'display-block' : isOpenModalDelete, 'display-none' : !isOpenModalDelete}">
+    <div class="modal-content"> 
+      <div class="alert alert-warning d-flex align-items-center" role="alert">
+            <h6>¿Está seguro que desea eliminar este registro?</h6>
+        </div>
+        <div class="d-flex justify-content-end align-items-center mt-3">
+          <button type="button" class="btn me-2 cancelButton" (click)="onCancel()">Cancelar</button>
+          <button type="submit" class="btn submitButton" (click)="onSubmit()">Confirmar</button>
+      </div>
+    </div> 
+  </div>
+  
