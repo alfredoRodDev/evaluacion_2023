@@ -1,0 +1,39 @@
+<nav class="navbar" style="background-color: #e0e0e0;">
+    <div class="container">
+      <a class="navbar-brand">
+        <img src="assets/banco-pichincha-logo-4.png" alt="Bootstrap" width="115" height="28">
+      </a>
+    </div>
+</nav>
+<div class="container mt-5">
+    <app-header-evaluacion
+      (onOpenModalEvent)="onOpenModal()"
+    ></app-header-evaluacion>
+
+    <input class="form-control" type="file" id="formFile" (change)="onReadExcelFile($event)">
+
+    <app-list-evaluacion
+      [excelData]="excelData"
+      (onEditEvent)="onEdit($event)"
+      (onDeleteEvent)="onDelete($event)"
+    ></app-list-evaluacion>
+
+    <app-add-contact
+      [isOpenModal]="isOpenModal"
+      [contactDataToEdit]="contactDataToEdit"
+      (onCloseModalEvent)="onCloseModal()"
+      (onSubmitEvent)="onSubmit($event)"
+    ></app-add-contact>
+
+    <app-modal-delete
+      [isOpenModalDelete]="isOpenModalDelete"
+      (onCancelEvent)="handleOnCloseModalDelete()"
+      (onSubmitEvent)="handleOnSubmitDelete()"
+    ></app-modal-delete>
+
+    <app-snack-bar
+      [snackBarObj]="snackBarObj" 
+      (onCloseSnackBarEvent)="handleOnCloseSnackBar()"
+    >
+    </app-snack-bar>
+</div>
